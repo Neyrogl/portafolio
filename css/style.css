@@ -1,0 +1,75 @@
+/* =======================================
+   FOTO Y HALO ANIMADO
+   ======================================= */
+
+/* Contenedor de la foto para animación de entrada */
+.photo-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Clase que se activa al cargar la página */
+.photo-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Imagen con efecto hover y halo animado */
+.halo-image {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efecto de acercamiento al pasar el mouse */
+.halo-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px 20px rgba(0, 123, 255, 0.7);
+}
+
+/* Halo animado tipo ondas detrás de la foto */
+.halo-image::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;   /* ajusta tamaño del halo */
+  height: 260px;  /* ajusta tamaño del halo */
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 10px rgba(0, 123, 255, 0.4);
+  animation: pulse 2.5s infinite;
+  z-index: -1; /* detrás de la foto */
+}
+
+/* Animación de las ondas del halo */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+/* =======================================
+   OTROS ESTILOS GENERALES (si quieres)
+   ======================================= */
+
+/* Hero centrado y responsive */
+section.bg-light {
+  padding: 5rem 0;
+}
+
+/* Ajuste de botones en Hero */
+section.bg-light .btn {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
