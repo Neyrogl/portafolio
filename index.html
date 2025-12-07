@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Portafolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,12 +17,13 @@
   <!-- Mi CSS personalizado -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Mi Portafolio</a>
+      <a class="navbar-brand fw-bold" href="#">Neyro </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,52 +39,108 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="bg-light py-5">
+  <section class="py-5 min-vh-100 d-flex align-items-center" id="hero">
     <div class="container">
       <div class="row align-items-center">
         <!-- Texto -->
         <div class="col-md-6 text-center text-md-start">
-          <h1 class="display-4 fw-bold">¡Hola! Soy <span class="text-primary">Neyro Lugo</span></h1>
-          <p class="lead mt-3">
-            Ingeniero en informática | Desarrollador Web en progreso | Amante de la tecnología
+          <h1 class="display-4 fw-bold">¡Hola! Soy <span class="text-primary" id="typewriter"></span></h1>
+          <p class="lead text-muted">Ingeniero en informática | Desarrollador Web | Amante de la tecnología
           </p>
-          <a href="#projects" class="btn btn-primary btn-lg mt-3 me-2">Ver mis proyectos</a>
-          <a href="#contact" class="btn btn-outline-dark btn-lg mt-3">Contáctame</a>
+          <a href="#projects" class="btn btn-primary btn-lg mt-3 me-2 rounded-pill shadow-sm">Ver mis proyectos</a>
+          <a href="#contact" class="btn btn-outline-dark btn-lg mt-3 rounded-pill">Contáctame</a>
         </div>
         <!-- Imagen -->
-        <div class="col-md-6 text-center">
-  <div class="photo-wrapper">
-    <img src="img/mi-foto.png" alt="Foto de Neyro Lugo"
-         class="img-fluid rounded-circle shadow halo-image"
-         style="max-width: 250px;">
-  </div>
-</div>
-
+        <div class="col-md-6 text-center d-flex justify-content-center">
+          <div class="cyber-photo-container">
+            <img src="img/mi-foto.png" alt="Foto de Neyro Lugo" class="img-fluid cyber-photo">
+            <div class="scanner-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="fw-bold mb-4">Sobre Mí</h2>
+          <p class="lead text-muted">
+            Soy un apasionado por la creación de soluciones digitales. Me especializo en el desarrollo web y
+            siempre
+            estoy buscando aprender nuevas tecnologías. Mi objetivo es crear experiencias de usuario intuitivas
+            y
+            funcionales.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Projects Section -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Mis Proyectos</h2>
+      <div class="row g-4">
+        <!-- Proyecto 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Proyecto Alpha</h5>
+              <p class="card-text text-muted">Una aplicación web increíble construida con las últimas
+                tecnologías.</p>
+              <a href="#" class="btn btn-primary btn-sm rounded-pill">Ver más</a>
+            </div>
+          </div>
+        </div>
+        <!-- Proyecto 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Proyecto Beta</h5>
+              <p class="card-text text-muted">Diseño moderno y responsivo para una startup local.</p>
+              <a href="#" class="btn btn-primary btn-sm rounded-pill">Ver más</a>
+            </div>
+          </div>
+        </div>
+        <!-- Proyecto 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Proyecto Gamma</h5>
+              <p class="card-text text-muted">Sistema de gestión optimizado para pequeñas empresas.</p>
+              <a href="#" class="btn btn-primary btn-sm rounded-pill">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2 class="fw-bold mb-4">Contacto</h2>
+          <p class="mb-4">¿Tienes una idea en mente? ¡Hablemos!</p>
+          <a href="mailto:correo@ejemplo.com" class="btn btn-primary btn-lg rounded-pill px-5">Enviar Correo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón Modo Oscuro -->
+  <button id="toggle-dark" class="dark-mode-btn" aria-label="Cambiar modo oscuro">
+    🌙
+  </button>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Efecto de scroll para la foto -->
-  <script>
-  const photo = document.querySelector(".photo-wrapper");
-
-  // Aparece inmediatamente
-  photo.classList.add("visible");
-
-  // Mantener el efecto al hacer scroll por si agregas más secciones
-  document.addEventListener("scroll", function () {
-    const position = photo.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (position < windowHeight - 100) {
-      photo.classList.add("visible");
-    }
-  });
-</script>
-
+  <!-- Script Personalizado -->
+  <script src="js/script.js"></script>
 
 </body>
+
 </html>

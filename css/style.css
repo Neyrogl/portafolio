@@ -1,75 +1,223 @@
 /* =======================================
-   FOTO Y HALO ANIMADO
+   RESETS Y FUENTES GLOBALES (MATRIX THEME)
    ======================================= */
-
-/* Contenedor de la foto para animación de entrada */
-.photo-wrapper {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
+:root {
+  --matrix-green: #00ff41;
+  --matrix-dark-green: #008F11;
+  --matrix-black: #050505;
+  --matrix-dark-bg: #020b02;
+  --matrix-text: #e0eee0;
 }
 
-/* Clase que se activa al cargar la página */
-.photo-wrapper.visible {
-  opacity: 1;
-  transform: translateY(0);
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Mantener Poppins, se ve limpia */
+  background-color: #f4f4f4;
+  /* Fondo claro por defecto (se cambiará radicalmente en dark mode/defecto) */
+  color: #333;
 }
 
-/* Imagen con efecto hover y halo animado */
-.halo-image {
-  position: relative;
-  z-index: 1;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+/* Override de Bootstrap Primary Colors - GLOBAL */
+.text-primary {
+  color: var(--matrix-dark-green) !important;
 }
 
-/* Efecto de acercamiento al pasar el mouse */
-.halo-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px 20px rgba(0, 123, 255, 0.7);
+.btn-primary {
+  background-color: var(--matrix-dark-green);
+  border-color: var(--matrix-dark-green);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 143, 17, 0.4);
 }
 
-/* Halo animado tipo ondas detrás de la foto */
-.halo-image::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 260px;   /* ajusta tamaño del halo */
-  height: 260px;  /* ajusta tamaño del halo */
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  box-shadow: 0 0 20px 10px rgba(0, 123, 255, 0.4);
-  animation: pulse 2.5s infinite;
-  z-index: -1; /* detrás de la foto */
+.btn-primary:hover {
+  background-color: #006400;
+  border-color: #006400;
+  box-shadow: 0 0 15px rgba(0, 143, 17, 0.6);
 }
 
-/* Animación de las ondas del halo */
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0.7;
-  }
+.btn-outline-dark {
+  border-color: var(--matrix-dark-green);
+  color: var(--matrix-dark-green);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--matrix-dark-green);
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Efecto cursor parpadeante */
+.typing-cursor::after {
+  content: '|';
+  color: var(--matrix-green);
+  /* Cursor verde */
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
   50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.3;
+    opacity: 0;
   }
-  100% {
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0.7;
-  }
+}
+
+#hero {
+  background: linear-gradient(135deg, #f0fff0 0%, #e0ffe0 100%);
+  /* Fondo muy claro verde */
+}
+
+/* Navbar linea verde */
+.navbar {
+  border-bottom: 1px solid var(--matrix-dark-green);
+}
+
+/* BOTÓN FLOTANTE CIRCULAR */
+.dark-mode-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--matrix-dark-green);
+  color: #fff;
+  border: 1px solid var(--matrix-green);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1030;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+  background-color: #000;
+  color: var(--matrix-green);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.8);
 }
 
 /* =======================================
-   OTROS ESTILOS GENERALES (si quieres)
+   ESTILOS MODO OSCURO (MATRIX REAL)
    ======================================= */
-
-/* Hero centrado y responsive */
-section.bg-light {
-  padding: 5rem 0;
+body.dark-mode {
+  background-color: var(--matrix-black);
+  color: var(--matrix-text);
+  font-family: 'Poppins', sans-serif;
+  /* Podríamos mezclar con una mono en títulos si quisieramos */
 }
 
-/* Ajuste de botones en Hero */
-section.bg-light .btn {
-  margin-top: 1rem;
-  margin-right: 0.5rem;
+/* Textos oscuros - override general */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode .text-muted,
+body.dark-mode .lead,
+body.dark-mode .card-text {
+  color: #c0dec0 !important;
+  /* Gris verdoso claro para lectura cómoda */
+  text-shadow: none;
+}
+
+/* Títulos con GLOW */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h5,
+body.dark-mode .navbar-brand {
+  color: var(--matrix-green) !important;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+}
+
+/* Span del nombre */
+body.dark-mode #typewriter {
+  color: #fff !important;
+  /* Nombre en blanco para resaltar */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--matrix-green);
+}
+
+/* Primary overrides in dark mode */
+body.dark-mode .text-primary {
+  color: var(--matrix-green) !important;
+}
+
+body.dark-mode .btn-primary {
+  background-color: transparent;
+  border: 1px solid var(--matrix-green);
+  color: var(--matrix-green);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2) inset, 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+body.dark-mode .btn-primary:hover {
+  background-color: var(--matrix-green);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+}
+
+body.dark-mode .btn-outline-dark {
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
+}
+
+body.dark-mode .btn-outline-dark:hover {
+  background-color: var(--matrix-green);
+  color: #000;
+}
+
+
+/* Fondos */
+body.dark-mode .bg-light,
+body.dark-mode .bg-white {
+  background-color: var(--matrix-dark-bg) !important;
+}
+
+body.dark-mode #hero {
+  background: linear-gradient(180deg, #000 0%, #051005 100%);
+  /* Opcional: Patrón de grid sutil */
+  background-image:
+    linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+body.dark-mode .navbar-dark {
+  background-color: #000 !important;
+  border-bottom: 1px solid var(--matrix-green);
+}
+
+/* Botón flotante en modo oscuro */
+body.dark-mode .dark-mode-btn {
+  background-color: #000;
+  color: var(--matrix-green);
+  border-color: var(--matrix-green);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+}
+
+body.dark-mode .dark-mode-btn:hover {
+  background-color: var(--matrix-green);
+  color: #000;
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.8);
+}
+
+/* Enlaces de navegación */
+body.dark-mode .nav-link {
+  color: #a0c0a0 !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+  color: var(--matrix-green) !important;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
 }
