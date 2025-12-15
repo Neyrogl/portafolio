@@ -221,3 +221,31 @@ body.dark-mode .nav-link.active {
   color: var(--matrix-green) !important;
   text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
 }
+
+/* =======================================
+   CURSOR MATRIX EFFECT
+   ======================================= */
+.matrix-trail {
+  position: fixed;
+  color: var(--matrix-green);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 9999;
+  animation: matrixFall 1s linear forwards;
+  text-shadow: 0 0 5px var(--matrix-green);
+  opacity: 1;
+}
+
+@keyframes matrixFall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.5);
+  }
+}

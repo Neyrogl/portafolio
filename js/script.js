@@ -19,7 +19,7 @@ if (photo) {
 
 /* Efecto Máquina de Escribir */
 const typeWriterElement = document.getElementById('typewriter');
-const textArray = ["Neyro Lugo", "Desarrollador Web", "Ingeniero"];
+const textArray = ["Neyro Lugo", "Desarrollador Web", "Moto Taxi"];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -71,3 +71,27 @@ if (toggleDarkBtn) {
     }
   });
 }
+
+/* =======================================
+   MATRIX CURSOR TRAIL
+   ======================================= */
+const matrixChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアィイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+let lastMatrixSpawn = 0;
+
+document.addEventListener("mousemove", (e) => {
+  const now = Date.now();
+  if (now - lastMatrixSpawn < 50) return; // Limit spawn rate (approx 20fps)
+  lastMatrixSpawn = now;
+
+  const trail = document.createElement("div");
+  trail.className = "matrix-trail";
+  trail.innerText = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+  trail.style.left = `${e.clientX}px`;
+  trail.style.top = `${e.clientY}px`;
+
+  document.body.appendChild(trail);
+
+  setTimeout(() => {
+    trail.remove();
+  }, 1000);
+});
